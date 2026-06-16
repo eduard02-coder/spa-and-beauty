@@ -1,0 +1,19 @@
+@use '../base' as *;
+@use '../abstracts/mixins' as *;
+
+@mixin anchor {
+  color: inherit;
+  text-decoration: inherit;
+
+  &:hover {
+    color: $link-text-hover-color;
+    @include transition;
+  }
+}
+
+@mixin ul-links {
+  list-style: none;
+  > li > a {
+    @include anchor();
+  }
+}

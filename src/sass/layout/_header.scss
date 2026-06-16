@@ -1,0 +1,10 @@
+@use '../components' as *;
+@use '../base/' as *;
+@use '../abstracts/' as *;
+
+@mixin header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}

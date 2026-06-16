@@ -1,0 +1,59 @@
+// --- Poppins regular (400)
+@font-face {
+  font-family: 'Poppins';
+  src: url('../../fonts/poppins-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// --- Poppins medium (500)
+@font-face {
+  font-family: 'Poppins';
+  src: url('../../fonts/poppins-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+// --- Poppins semibold (600)
+@font-face {
+  font-family: 'Poppins';
+  src: url('../../fonts/poppins-semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+// --- Poppins bold (700)
+@font-face {
+  font-family: 'Poppins';
+  src: url('../../fonts/poppins-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// --- Nunito Sans  (variable)
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('../../fonts/nunitosans-variablefont.woff2') format('woff2');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+// --- Icomoon
+@font-face {
+  font-family: 'icomoon';
+  src: url('../../fonts/icomoon//icomoon.eot?ttz58w');
+  src:
+    url('../../fonts/icomoon//icomoon.eot?ttz58w#iefix')
+      format('embedded-opentype'),
+    url('../../fonts/icomoon//icomoon.ttf?ttz58w') format('truetype'),
+    url('../../fonts/icomoon//icomoon.woff?ttz58w') format('woff'),
+    url('../../fonts/icomoon//icomoon.svg?ttz58w#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}

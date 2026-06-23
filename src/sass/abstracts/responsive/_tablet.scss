@@ -1,0 +1,203 @@
+@use '../../components/' as *;
+@use '../../base/' as *;
+
+@use '../mixins' as *;
+@use '../icomoon' as *;
+
+@use 'desktop' as *;
+@use 'mobile' as *;
+
+@mixin tablet {
+  @include mobile;
+  body {
+    > .container {
+      > main {
+        > .hero {
+          position: static;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+
+          > .text {
+            > p {
+              &::after {
+                content: '';
+                aspect-ratio: auto;
+              }
+            }
+
+            > .numbers {
+              margin-top: 40px;
+            }
+          }
+          > .image {
+            width: 100%;
+            position: relative;
+            bottom: auto;
+            left: auto;
+            right: auto;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 670px) {
+    body {
+      > .container {
+        > header {
+          > .menu {
+            display: flex;
+            position: static;
+            box-shadow: none;
+            @include nogap;
+            background-color: transparent;
+            margin-right: 40px;
+            margin-left: 40px;
+
+            > aside > ul {
+              flex-direction: row;
+              @include nogap;
+
+              > li {
+                border-style: none;
+                @include nogap;
+                width: fit-content;
+
+                &:first-of-type,
+                &:nth-of-type(2) {
+                  > a::after {
+                    content: '';
+                  }
+                }
+
+                &:nth-of-type(4) > a {
+                  padding: 5px 20px;
+                }
+              }
+            }
+
+            > nav {
+              display: none;
+              position: absolute;
+              background-color: $gray-1;
+              z-index: 1;
+              left: 0;
+              top: 55px;
+
+              background-color: $gray-1;
+              box-shadow: 0px 0px 50px $dark-blue;
+              border-radius: 5px;
+
+              &:hover {
+                display: flex;
+              }
+
+              > ul {
+                border-style: none;
+                flex-direction: row;
+                justify-content: space-around;
+
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-right: 0;
+
+                > li {
+                  border-style: none;
+                  width: fit-content;
+
+                  > a {
+                    padding: 0;
+                    width: fit-content;
+                  }
+                }
+              }
+            }
+          }
+
+          &:has(.menu-icon:hover) {
+            > .menu > nav {
+              display: flex;
+            }
+          }
+        }
+
+        > main {
+          > .hero {
+            flex-direction: row;
+            align-items: start;
+
+            > .text,
+            > .image {
+              width: 50%;
+              max-width: none;
+            }
+
+            > .text {
+              > h1 {
+                font-size: 33px;
+              }
+
+              > p {
+                font-size: 18px;
+              }
+            }
+
+            > .image {
+              padding-bottom: 140px;
+              padding-top: 77px;
+              translate: 8px -88px;
+              z-index: -1;
+
+              > .quote {
+                font-size: 11px;
+
+                &:nth-of-type(1) {
+                  top: 100px;
+                }
+
+                &:nth-of-type(2) {
+                  bottom: 150px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 760px) {
+    body {
+      > .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        > main {
+          > .hero {
+            > .text {
+              width: 60%;
+              > h1 {
+                font-size: 45px;
+              }
+            }
+
+            > .image {
+              width: 40%;
+              translate: 16px -88px;
+
+              > figure {
+                > img {
+                  max-width: 226px;
+                }
+              }
+              > .quote:last-of-type {
+                bottom: 120px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

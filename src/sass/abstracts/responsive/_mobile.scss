@@ -1,0 +1,267 @@
+@use 'sass:math';
+
+@use '../../components/' as comp;
+@use '../../base/' as *;
+@use '../../layout/' as lay;
+
+@use '../mixins' as *;
+@use '../icomoon' as *;
+
+@use 'desktop' as *;
+
+@mixin mobile {
+  body {
+    @include defaults;
+    font-family: $font-1;
+    background-color: $body-bg;
+
+    > .container {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+
+      > header {
+        @include lay.header;
+        padding: 25px 1rem 25px 1rem;
+        position: relative;
+
+        > a > img {
+          width: 170px;
+        }
+
+        > .menu {
+          @include comp.popup-menu('.menu-icon');
+
+          flex-direction: row;
+          justify-content: start;
+
+          width: 100%;
+          padding: 30px 20px 30px 20px;
+          background-color: $gray-1;
+          box-shadow: 0px 0px 50px $dark-blue;
+          border-radius: 5px;
+
+          $gap: 40px;
+
+          > nav,
+          > aside {
+            width: 100%;
+            margin: 0;
+            max-width: none;
+
+            > ul {
+              flex-direction: column;
+              max-width: none;
+              width: 100%;
+              margin: 0;
+
+              > li {
+                border-top: 1px solid gray;
+                width: 100%;
+
+                &:first-of-type {
+                  border-top: none;
+                }
+
+                > a {
+                  display: flex;
+                  justify-content: center;
+                  &:hover {
+                    text-shadow: none;
+                    color: inherit;
+                  }
+                }
+              }
+            }
+          }
+
+          > nav {
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid gray;
+
+            > ul {
+              align-items: center;
+              justify-content: center;
+              font-size: 18px;
+              padding-right: math.div($gap, 2);
+
+              > li {
+                > a {
+                  width: 100%;
+                  padding: 20px;
+                }
+              }
+            }
+          }
+
+          > aside {
+            > ul {
+              padding-left: math.div($gap, 2);
+              > li {
+                padding-bottom: 25px;
+                padding-top: 25px;
+              }
+
+              > li:nth-of-type(1),
+              > li:nth-of-type(2) {
+                > a {
+                  display: grid;
+                  grid-template-columns: auto auto auto;
+
+                  &::before {
+                    grid-column: 1 / 2;
+                    padding-right: 10px;
+                  }
+                  &::after {
+                    grid-column: 3 / 4;
+                  }
+                }
+              }
+
+              > li:nth-of-type(1) {
+                > a::after {
+                  content: 'Shopping Bag';
+                  width: 100%;
+                }
+              }
+
+              > li:nth-of-type(2) {
+                margin: 0;
+                > a::after {
+                  content: 'Search';
+                }
+              }
+
+              > li:last-of-type {
+                > a {
+                  margin-left: auto;
+                  margin-right: auto;
+
+                  @media (max-width: 380px) {
+                    padding: 10px 20px;
+                  }
+
+                  &:hover {
+                    box-shadow: none;
+                    background-color: $dark-blue;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        > .menu-icon {
+          @include comp.menu-icon($dark-blue);
+        }
+      }
+
+      > main {
+        > .hero {
+          position: relative;
+          padding-bottom: 50px;
+
+          > .text,
+          > .image {
+            max-width: 480px;
+          }
+
+          > .text {
+            @include comp.text-side;
+            width: 100%;
+            padding-top: 0px;
+
+            > p {
+              margin-top: 40px;
+              &:after {
+                display: block;
+                width: 100%;
+                aspect-ratio: 0.5;
+                content: ' ';
+              }
+            }
+
+            > .buttons {
+              margin: 0;
+              flex-direction: column;
+
+              > li:last-of-type {
+                translate: -7px 0px;
+              }
+            }
+
+            > .numbers {
+              margin-top: 80px;
+              position: static;
+              width: 100%;
+              padding-left: 0px;
+              padding-right: 0px;
+            }
+          }
+
+          > .image {
+            position: absolute;
+            bottom: 600px;
+
+            left: -8px;
+            right: -8px;
+
+            background-color: $cyan;
+            background-image: url(../../../img/watermark-on-background.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% -50px;
+
+            > figure {
+              width: 100%;
+              padding: 180px 50px 100px 50px;
+
+              > img {
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                display: block;
+                max-width: 380px;
+              }
+            }
+
+            > .quote {
+              @include comp.quote;
+              position: absolute;
+              width: 95%;
+              max-width: 400px;
+              left: 50%;
+              transform: translateX(-50%);
+
+              &:first-of-type {
+                margin-left: 10px;
+                top: 8px;
+              }
+
+              &:last-of-type {
+                right: 0px;
+                bottom: 8px;
+                width: 95%;
+              }
+            }
+          }
+        }
+
+        @media (min-width: 425px) {
+          > .hero {
+            > .text > p::after {
+              aspect-ratio: 0.51;
+            }
+          }
+        }
+        @media (min-width: 475px) {
+          > .hero {
+            > .text > p::after {
+              aspect-ratio: 0.54;
+            }
+          }
+        }
+      }
+    }
+  }
+}

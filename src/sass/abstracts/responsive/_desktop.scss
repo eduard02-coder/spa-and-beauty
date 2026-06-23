@@ -1,0 +1,107 @@
+@use '../../components/' as comp;
+@use '../../base/' as *;
+@use '../../layout/' as lay;
+
+@use '../mixins' as *;
+@use '../icomoon' as *;
+
+@mixin desktop {
+  body {
+    @include defaults;
+    font-family: $font-1;
+    background-color: $body-bg;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    width: 100vw;
+
+    &::before {
+      z-index: -1;
+      position: absolute;
+      content: ' ';
+      display: block;
+      background-color: $cyan;
+      background-image: url(../../../img/watermark-on-background.svg);
+      background-repeat: no-repeat;
+      background-size: 507px;
+      background-position: -127px 27px;
+      width: 500px;
+
+      right: 0px;
+      top: 0px;
+      bottom: 130px;
+    }
+
+    > .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      max-width: 1360px;
+      width: 100%;
+
+      > header {
+        @include lay.header;
+      }
+
+      > main {
+        width: 100%;
+
+        &::after {
+          z-index: -2;
+          position: absolute;
+          content: ' ';
+          display: block;
+          background-color: $white;
+          height: 170px;
+
+          top: 520px;
+          right: 0px;
+          left: 0px;
+        }
+
+        > .hero {
+          width: 100%;
+          display: flex;
+          z-index: -1;
+
+          > .text {
+            @include comp.text-side;
+          }
+
+          > .image {
+            padding-top: 50px;
+            position: relative;
+
+            > figure {
+              position: relative;
+              max-width: 500px;
+              translate: -100px 0px;
+              z-index: -1;
+
+              > img {
+                display: block;
+                width: 100%;
+              }
+            }
+
+            > .quote {
+              @include comp.quote;
+              width: 350px;
+              position: absolute;
+            }
+
+            > .quote-1 {
+              bottom: 220px;
+              right: -140px;
+            }
+
+            > .quote-2 {
+              bottom: 20px;
+              left: 180px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

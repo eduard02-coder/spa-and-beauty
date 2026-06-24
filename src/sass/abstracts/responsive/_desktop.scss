@@ -104,4 +104,49 @@
       }
     }
   }
+
+  @media (max-width: 1300px) {
+    body {
+      > .container {
+        > main {
+          > .hero {
+            > .text {
+              > .numbers {
+                position: static;
+                margin-top: 40px;
+                max-width: 450px;
+
+                > article {
+                  font-size: 14px;
+                }
+              }
+            }
+
+            > .image {
+              > figure {
+                translate: 0px 0px;
+              }
+              > .quote {
+                font-size: 12px;
+                width: 100%;
+                max-width: 300px;
+                bottom: 30px;
+              }
+
+              > .quote-1 {
+                right: auto;
+                left: -60px;
+              }
+
+              > .quote-2 {
+                left: auto;
+                right: -10px;
+                max-width: 200px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
